@@ -33,8 +33,8 @@ npm install promises-aplus-tests -D
 
 新建一个 `package.json` ，**配置如下：**
 
+package.json
 ```javascript
-// package.json
 {
   "devDependencies": {
     "promises-aplus-tests": "^2.1.2"
@@ -44,3 +44,19 @@ npm install promises-aplus-tests -D
   }
 }
 ```
+- 上面的配置 执行 `npm run test`，将会测试 myPromise.js。
+
+- 如果希望测试注释版本 myPromiseNotes.js，则把 package.json 改为下面配置即可：
+
+```javascript
+{
+  "devDependencies": {
+    "promises-aplus-tests": "^2.1.2"
+  },
+  "scripts": {
+    "test": "promises-aplus-tests myPromiseNotes"
+  }
+}
+```
+
+
