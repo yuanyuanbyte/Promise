@@ -1,5 +1,8 @@
 const myPromise = require('../myPromiseFully');
 
+/**
+ * 验证Promise.resolve()方法
+ */
 
 const promise1 = myPromise.resolve(123);
 

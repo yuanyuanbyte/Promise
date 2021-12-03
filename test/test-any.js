@@ -1,5 +1,9 @@
 const myPromise = require('../myPromiseFully');
 
+/**
+ * 验证Promise.any()方法
+ */
+
 // console.log(new AggregateError('All promises were rejected'));
 
 myPromise.any([]).catch(e => {

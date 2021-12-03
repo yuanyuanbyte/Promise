@@ -1,5 +1,9 @@
 const myPromise = require('../myPromiseFully');
 
+/**
+ * 验证Promise.allSettled()方法
+ */
+
 const promise1 = myPromise.resolve(3);
 const promise2 = 1;
 const promises = [promise1, promise2];

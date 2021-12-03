@@ -1,5 +1,9 @@
 const myPromise = require('./myPromiseFully')
 
+/**
+ * 测试Promise功能
+ */
+
 // let p1 = new myPromise(function (resolve, reject) {
 //     resolve(1)
 // }).then(function (value) {

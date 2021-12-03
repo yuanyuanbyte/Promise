@@ -1,5 +1,9 @@
 const myPromise = require('../myPromiseFully');
 
+/**
+ * 验证Promise.all()方法
+ */
+
 var p1 = new Promise((resolve, reject) => {
     setTimeout(resolve, 1000, 'one');
 });
