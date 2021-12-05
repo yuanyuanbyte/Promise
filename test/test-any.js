@@ -42,16 +42,4 @@ const pErr3 = new myPromise((resolve, reject) => {
 
 myPromise.any([pErr1, pErr2, pErr3]).catch(e => {
     console.log(e);
-    for (let item in e) {
-        debugger
-        console.log(item + ':' + obj[pro])
-    }
 })
-/* 
-[[PromiseState]]: "rejected"
-[[PromiseResult]]: AggregateError: All promises were rejected
-errors: Array(3)
-0: "总是失败"
-1: "总是失败"
-2: "总是失败"
-*/

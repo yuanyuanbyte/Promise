@@ -294,6 +294,31 @@ class myPromise {
             }
         })
     }
+
+    /**
+     * Promise.race()
+     * @param {iterable} promises 可迭代对象，类似Array。详见 iterable。
+     * @returns 
+     */
+    static race(promises) {
+        return new myPromise((resolve, reject) => {
+            // 参数校验
+            if (Array.isArray(promises)) {
+                // 如果传入的迭代promises是空的，则返回的 promise 将永远等待。
+                if (promises.length > 0) {
+                    promises.forEach(item => {
+                        /**
+                         * 如果迭代包含一个或多个非承诺值和/或已解决/拒绝的承诺，
+                         * 则 Promise.race 将解析为迭代中找到的第一个值。
+                         */
+                        myPromise.resolve(item).then(resolve, reject);
+                    })
+                }
+            } else {
+                return reject(new TypeError('Argument is not iterable'))
+            }
+        })
+    }
 }
 
 /**
