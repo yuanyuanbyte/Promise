@@ -16,10 +16,10 @@
   - Promise.race
 
 
-# Promise A+ 测试
+# Promises/A+ 测试
 如何证明我们写的`myPromise`就符合 **Promises/A+** 规范呢？
 
-跑一下 Promise A+ 测试 就好啦~
+跑一下 Promises/A+ 测试 就好啦~
 ## 1. 安装官方测试工具
 我们使用Promises/A+官方的测试工具 [promises-aplus-tests](https://github.com/promises-aplus/promises-tests) 来对我们的`myPromise`进行测试
 
