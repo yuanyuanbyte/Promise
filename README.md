@@ -1,10 +1,10 @@
 # Promise
-手写 Promise 核心原理，完整的 Promises/A+ 实现，通过了 Promises/A+ 官方872个测试用例测试，根据规范实现了 Promise 的全部方法。
+手写 Promise 核心原理，完整的 Promises/A+ 实现，通过了 Promises/A+ 官方872个测试用例测试，根据规范实现了 ES6+ 的全部 API，包括处于 TC39 第四阶段草案的 Promise.any()。
 
-仓库中包含的几个版本
-- myPromise.js: Promise 核心原理的实现，通过了 Promises/A+ 官方872个测试用例测试
-- myPromiseNotes.js: myPromise.js 的注释版本
-- myPromiseFully.js: 在 myPromise.js 基础上，根据规范实现了 Promise 的全部方法： 
+仓库中包含的几个版本：
+- **[myPromise.js](https://github.com/yuanyuanbyte/Promise/blob/main/myPromise.js)** (Promise 核心原理的实现，通过了 Promises/A+ 官方872个测试用例测试)
+- **[myPromiseNotes.js](https://github.com/yuanyuanbyte/Promise/blob/main/myPromiseNotes.js)** (myPromise.js 的注释版本)
+- **[myPromiseFully.js](https://github.com/yuanyuanbyte/Promise/blob/main/myPromiseFully.js)** (在 myPromise.js 基础上，根据规范实现了 Promise ES6+ 的全部 API) 
 
   - Promise.resolve
   - Promise.reject
