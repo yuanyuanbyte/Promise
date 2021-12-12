@@ -35,6 +35,3 @@ myPromise.all([p1, p2, p3, p4, p5]).then(values => {
 }, reason => {
     console.log(reason)
 });
-
-//From console:
-//"reject"
