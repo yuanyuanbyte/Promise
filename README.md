@@ -59,4 +59,23 @@ package.json
 }
 ```
 
+## 3. 完美通过官方872个测试用例
 
+**执行测试命令：**
+
+```shell
+npm run test
+```
+来看看我们的测试结果，走起 🚀
+
+
+
+![test-passed.gif](F:\Promise\Images\test-passed.gif)
+
+
+
+ Promises/A+ 官方测试总共872用例，我们手写的Promise完美通过了所有用例 🎉🎉🎉: 
+
+
+
+![test-passed.jpg](F:\Promise\Images\test-passed.jpg)
