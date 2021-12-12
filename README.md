@@ -21,7 +21,7 @@
 
 手写 Promise 详细的教程在这里：
 
-
+- 
 
 
 ## Promises/A+ 测试
