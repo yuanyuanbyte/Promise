@@ -70,7 +70,7 @@ npm run test
 
 
 
-![test-passed.gif](F:\Promise\Images\test-passed.gif)
+![test-passed.gif](/Images/test-passed.gif)
 
 
 
@@ -78,6 +78,4 @@ npm run test
 
 
 
-![test-passed.jpg](F:\Promise\Images\test-passed.jpg)
-
-1
+![test-passed.jpg](/Images/test-passed.jpg)
