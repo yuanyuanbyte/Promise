@@ -21,7 +21,7 @@
 
 手写 Promise 详细的教程在这里：
 
-- 
+- [JavaScript 深入系列之 Promise 核心原理的模拟实现，通过 Promises/A+ 官方测试](https://github.com/yuanyuanbyte/Blog/issues/125)
 
 
 ## Promises/A+ 测试
