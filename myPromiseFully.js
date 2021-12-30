@@ -193,7 +193,6 @@ class myPromise {
                             reject(reason);
                         }
                     )
-
                 })
             } else {
                 return reject(new TypeError('Argument is not iterable'))
