@@ -22,7 +22,8 @@
 手写 Promise 详细的教程在这里：
 
 - [JavaScript 深入系列之 Promise 核心原理的模拟实现，通过 Promises/A+ 官方测试](https://github.com/yuanyuanbyte/Blog/issues/125)
-
+- [JavaScript 深入系列之 Promise 实例方法 catch 和 finally 的模拟实现](https://github.com/yuanyuanbyte/Blog/issues/126)
+- [JavaScript 深入系列之 Promise 静态方法 resolve、reject、all、allSettled、any 和 race 的模拟实现](https://github.com/yuanyuanbyte/Blog/issues/126)
 
 ## Promises/A+ 测试
 如何证明我们写的`myPromise`就符合 **Promises/A+** 规范呢？
