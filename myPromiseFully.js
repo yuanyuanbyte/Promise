@@ -176,30 +176,24 @@ class myPromise {
                 }
 
                 promises.forEach((item, index) => {
-                    //  判断参数是否为promise
-                    if (item instanceof myPromise) {
-                        myPromise.resolve(item).then(
-                            value => {
-                                count++;
-                                // 每个promise执行的结果存储在result中
-                                result[index] = value;
-                                // Promise.all 等待所有都完成（或第一个失败）
-                                count === promises.length && resolve(result);
-                            },
-                            reason => {
-                                /**
-                                 * 如果传入的 promise 中有一个失败（rejected），
-                                 * Promise.all 异步地将失败的那个结果给失败状态的回调函数，而不管其它 promise 是否完成
-                                 */
-                                reject(reason);
-                            }
-                        )
-                    } else {
-                        // 参数里中非Promise值，原样返回在数组里
-                        count++;
-                        result[index] = item;
-                        count === promises.length && resolve(result);
-                    }
+                    // myPromise.resolve方法中已经判断了参数是否为promise与thenable对象，所以无需在该方法中再次判断
+                    myPromise.resolve(item).then(
+                        value => {
+                            count++;
+                            // 每个promise执行的结果存储在result中
+                            result[index] = value;
+                            // Promise.all 等待所有都完成（或第一个失败）
+                            count === promises.length && resolve(result);
+                        },
+                        reason => {
+                            /**
+                             * 如果传入的 promise 中有一个失败（rejected），
+                             * Promise.all 异步地将失败的那个结果给失败状态的回调函数，而不管其它 promise 是否完成
+                             */
+                            reject(reason);
+                        }
+                    )
+
                 })
             } else {
                 return reject(new TypeError('Argument is not iterable'))
