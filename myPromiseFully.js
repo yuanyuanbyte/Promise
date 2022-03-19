@@ -83,24 +83,20 @@ class myPromise {
                 });
             } else if (this.PromiseState === myPromise.PENDING) {
                 this.onFulfilledCallbacks.push(() => {
-                    setTimeout(() => {
-                        try {
-                            let x = onFulfilled(this.PromiseResult);
-                            resolvePromise(promise2, x, resolve, reject)
-                        } catch (e) {
-                            reject(e);
-                        }
-                    });
+                    try {
+                        let x = onFulfilled(this.PromiseResult);
+                        resolvePromise(promise2, x, resolve, reject)
+                    } catch (e) {
+                        reject(e);
+                    }
                 });
                 this.onRejectedCallbacks.push(() => {
-                    setTimeout(() => {
-                        try {
-                            let x = onRejected(this.PromiseResult);
-                            resolvePromise(promise2, x, resolve, reject);
-                        } catch (e) {
-                            reject(e);
-                        }
-                    });
+                    try {
+                        let x = onRejected(this.PromiseResult);
+                        resolvePromise(promise2, x, resolve, reject);
+                    } catch (e) {
+                        reject(e);
+                    }
                 });
             }
         })

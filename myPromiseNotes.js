@@ -115,24 +115,20 @@ class myPromise {
             } else if (this.PromiseState === myPromise.PENDING) {
                 // pending 状态保存的 resolve() 和 reject() 回调也要符合 2.2.7.1 和 2.2.7.2 规范
                 this.onFulfilledCallbacks.push(() => {
-                    setTimeout(() => {
-                        try {
-                            let x = onFulfilled(this.PromiseResult);
-                            resolvePromise(promise2, x, resolve, reject)
-                        } catch (e) {
-                            reject(e);
-                        }
-                    });
+                    try {
+                        let x = onFulfilled(this.PromiseResult);
+                        resolvePromise(promise2, x, resolve, reject)
+                    } catch (e) {
+                        reject(e);
+                    }
                 });
                 this.onRejectedCallbacks.push(() => {
-                    setTimeout(() => {
-                        try {
-                            let x = onRejected(this.PromiseResult);
-                            resolvePromise(promise2, x, resolve, reject);
-                        } catch (e) {
-                            reject(e);
-                        }
-                    });
+                    try {
+                        let x = onRejected(this.PromiseResult);
+                        resolvePromise(promise2, x, resolve, reject);
+                    } catch (e) {
+                        reject(e);
+                    }
                 });
             }
         })
