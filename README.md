@@ -102,7 +102,6 @@ npm run test
 - Vue 系列
 - HTML 应知应会系列
 - CSS 应知应会系列
-- 算法入门系列
 
 ## 交流
 各系列文章汇总：[https://github.com/yuanyuanbyte/Blog](https://github.com/yuanyuanbyte/Blog)
