@@ -38,7 +38,7 @@
 npm install promises-aplus-tests -D
 ```
 ### 2. 配置 package.json
-我们实现了`deferred `方法，也通过 ES6 Module 对外暴露了`myPromise`，最后配置一下`package.json`就可以跑测试啦~😺
+我们实现了`deferred `方法，也通过 CommonJS 对外暴露了`myPromise`，最后配置一下`package.json`就可以跑测试啦~😺
 
 新建一个 `package.json` ，**配置如下：**
 
