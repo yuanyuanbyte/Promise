@@ -21,25 +21,21 @@ class myPromise {
 
     resolve(result) {
         if (this.PromiseState === myPromise.PENDING) {
-            setTimeout(() => {
-                this.PromiseState = myPromise.FULFILLED;
-                this.PromiseResult = result;
-                this.onFulfilledCallbacks.forEach(callback => {
-                    callback(result)
-                })
-            });
+            this.PromiseState = myPromise.FULFILLED;
+            this.PromiseResult = result;
+            this.onFulfilledCallbacks.forEach(callback => {
+                callback(result)
+            })
         }
     }
 
     reject(reason) {
         if (this.PromiseState === myPromise.PENDING) {
-            setTimeout(() => {
-                this.PromiseState = myPromise.REJECTED;
-                this.PromiseResult = reason;
-                this.onRejectedCallbacks.forEach(callback => {
-                    callback(reason)
-                })
-            });
+            this.PromiseState = myPromise.REJECTED;
+            this.PromiseResult = reason;
+            this.onRejectedCallbacks.forEach(callback => {
+                callback(reason)
+            })
         }
     }
 
@@ -50,17 +46,16 @@ class myPromise {
      * @returns {function} newPromsie  返回一个新的promise对象
      */
     then(onFulfilled, onRejected) {
-        onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value;
-        onRejected = typeof onRejected === 'function' ? onRejected : reason => {
-            throw reason;
-        };
-
         let promise2 = new myPromise((resolve, reject) => {
             if (this.PromiseState === myPromise.FULFILLED) {
                 setTimeout(() => {
                     try {
-                        let x = onFulfilled(this.PromiseResult);
-                        resolvePromise(promise2, x, resolve, reject);
+                        if (typeof onFulfilled !== 'function') {
+                            resolve(this.PromiseResult);
+                        } else {
+                            let x = onFulfilled(this.PromiseResult);
+                            resolvePromise(promise2, x, resolve, reject);
+                        }
                     } catch (e) {
                         reject(e);
                     }
@@ -68,28 +63,44 @@ class myPromise {
             } else if (this.PromiseState === myPromise.REJECTED) {
                 setTimeout(() => {
                     try {
-                        let x = onRejected(this.PromiseResult);
-                        resolvePromise(promise2, x, resolve, reject);
+                        if (typeof onRejected !== 'function') {
+                            reject(this.PromiseResult);
+                        } else {
+                            let x = onRejected(this.PromiseResult);
+                            resolvePromise(promise2, x, resolve, reject);
+                        }
                     } catch (e) {
                         reject(e)
                     }
                 });
             } else if (this.PromiseState === myPromise.PENDING) {
                 this.onFulfilledCallbacks.push(() => {
-                    try {
-                        let x = onFulfilled(this.PromiseResult);
-                        resolvePromise(promise2, x, resolve, reject)
-                    } catch (e) {
-                        reject(e);
-                    }
+                    setTimeout(() => {
+                        try {
+                            if (typeof onFulfilled !== 'function') {
+                                resolve(this.PromiseResult);
+                            } else {
+                                let x = onFulfilled(this.PromiseResult);
+                                resolvePromise(promise2, x, resolve, reject);
+                            }
+                        } catch (e) {
+                            reject(e);
+                        }
+                    });
                 });
                 this.onRejectedCallbacks.push(() => {
-                    try {
-                        let x = onRejected(this.PromiseResult);
-                        resolvePromise(promise2, x, resolve, reject);
-                    } catch (e) {
-                        reject(e);
-                    }
+                    setTimeout(() => {
+                        try {
+                            if (typeof onRejected !== 'function') {
+                                reject(this.PromiseResult);
+                            } else {
+                                let x = onRejected(this.PromiseResult);
+                                resolvePromise(promise2, x, resolve, reject);
+                            }
+                        } catch (e) {
+                            reject(e);
+                        }
+                    });
                 });
             }
         })
@@ -107,19 +118,13 @@ class myPromise {
  */
 function resolvePromise(promise2, x, resolve, reject) {
     if (x === promise2) {
-        return reject(new TypeError('Chaining cycle detected for promise'));
+        throw new TypeError('Chaining cycle detected for promise');
     }
 
     if (x instanceof myPromise) {
-        if (x.PromiseState === myPromise.PENDING) {
-            x.then(y => {
-                resolvePromise(promise2, y, resolve, reject)
-            }, reject);
-        } else if (x.PromiseState === myPromise.FULFILLED) {
-            resolve(x.PromiseResult);
-        } else if (x.PromiseState === myPromise.REJECTED) {
-            reject(x.PromiseResult);
-        }
+        x.then(y => {
+            resolvePromise(promise2, y, resolve, reject)
+        }, reject);
     } else if (x !== null && ((typeof x === 'object' || (typeof x === 'function')))) {
         try {
             var then = x.then;
