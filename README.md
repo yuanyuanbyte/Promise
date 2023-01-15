@@ -107,9 +107,3 @@ npm run test
 各系列文章汇总：[https://github.com/yuanyuanbyte/Blog](https://github.com/yuanyuanbyte/Blog)
 
 我是圆圆，一名深耕于前端开发的攻城狮。
-
-欢迎添加我的个人微信 yuanyuanbyte
-
-
-
-![weixin](/Images/weixin.png)
