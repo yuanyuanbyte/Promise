@@ -106,9 +106,9 @@ npm run test
 ## 交流
 各系列文章汇总：[https://github.com/yuanyuanbyte/Blog](https://github.com/yuanyuanbyte/Blog)
 
-我是圆圆，专注于打造一系列能够帮助前端工程师提高的优质文章，希望我的文章能对你的学习成长有所帮助，一起加油！
+我是圆圆，一名深耕于前端开发的攻城狮。
 
-欢迎添加我的个人微信yuanyuanbyte，你对文章中大大小小的疑问我都会一一解答😺
+欢迎添加我的个人微信 yuanyuanbyte
 
 
 
